@@ -48,10 +48,5 @@ public class PrintEx {
 		// 해결방법 2) 탈출(escape) 문자 \n 작성
 		
 		System.out.println("\nHello\t\t\t World \u0050");
-
-
-	
-	
-	
 	}
 }
