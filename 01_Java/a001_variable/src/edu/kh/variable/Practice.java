@@ -16,7 +16,7 @@ public class Practice {
 		 * char(2)
 		 * 
 		 * 논리형
-		 * boolean(1, true/false)
+		 * boolean(1, true/false) 123
 		 * 
 		 * 
 		 * [컴퓨터 값 처리 원칙]
