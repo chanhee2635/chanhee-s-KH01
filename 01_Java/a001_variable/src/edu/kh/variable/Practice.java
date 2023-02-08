@@ -16,7 +16,7 @@ public class Practice {
 		 * char(2)
 		 * 
 		 * 논리형
-		 * boolean(1, true/false) 123
+		 * boolean(1, true/false)
 		 * 
 		 * 
 		 * [컴퓨터 값 처리 원칙]
@@ -52,5 +52,7 @@ public class Practice {
 		System.out.println((int)ch);  // 65
 		System.out.println(iNum1 + ch);  // 75
 		System.out.println((char)(ch + iNum1));  // K
+		
+		// 소스트리 확인용 주석
 	}
 }
