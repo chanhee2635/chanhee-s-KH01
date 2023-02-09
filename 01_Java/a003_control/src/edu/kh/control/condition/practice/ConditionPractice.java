@@ -77,8 +77,33 @@ public class ConditionPractice {
 	public void practice5() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("중간 고사 점수 : ");
+		int mi = sc.nextInt();
 		System.out.println("기말 고사 점수 : ");
+		int fi = sc.nextInt();
 		System.out.println("과제 점수 : ");
+		int su = sc.nextInt();
 		System.out.println("출석 횟수 : ");
+		int ch = sc.nextInt();
+		
+		double total = mi * 0.2 + fi * 0.3 + su * 0.3 + ch;
+		if(total>=70 && ch>6) {
+			System.out.println("================= 결과 =================");
+			System.out.println("중간 고사 점수(20) : " + mi*0.2);
+			System.out.println("기말 고사 점수(30) : " + fi*0.3);
+			System.out.println("과제 점수(20) : " + su*0.3);
+			System.out.println("출석 점수(20) : " + (double)ch);
+			System.out.println("총점 : " + total);
+			System.out.println("PASS");
+		} else if(total>=70 && ch<=6) {
+			System.out.println("================= 결과 =================");
+			System.out.println("중간 고사 점수(20) : " + mi*0.2);
+			System.out.println("기말 고사 점수(30) : " + fi*0.3);
+			System.out.println("과제 점수(20) : " + su*0.3);
+			System.out.println("출석 점수(20) : " + (double)ch);
+			System.out.println("총점 : " + total);
+			System.out.println("Fail [점수 미달]");
+		} else {
+			System.out.println("Fail [출석 횟수 부족 (ch/20)]");
+		}
 	}
 }
