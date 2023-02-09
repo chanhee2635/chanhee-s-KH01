@@ -16,7 +16,6 @@ public class OperatorPractice1 {
 		
 		System.out.println("\n1인당 사탕 개수 : " + candyCount / peopleCount);
 		System.out.println("남는 사탕 개수 : " + candyCount % peopleCount);
-		//가나다
 		
 	}
 }
