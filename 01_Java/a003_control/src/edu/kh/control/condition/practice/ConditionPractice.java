@@ -9,12 +9,12 @@ public class ConditionPractice {
 		System.out.print("숫자를 한 개 입력하세요 : ");
 		int num = sc.nextInt();
 		String result;
-		if(num>0 && num%2==0) {
-			result = "짝수입니다.";
-		} else if(num%2!=0) {
-			result = "홀수입니다.";
-		} else {
+		if(num<=0) {
 			result = "양수만 입력해주세요.";
+		}else if(num%2==0) {
+			result = "짝수입니다.";
+		} else{
+			result = "홀수입니다.";
 		}
 		System.out.println(result);
 	}
@@ -59,9 +59,9 @@ public class ConditionPractice {
 	}
 	public void practice4() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("키(m)를 입력해 주세요 :");
+		System.out.print("키(m)를 입력해 주세요 : ");
 		double height = sc.nextDouble();
-		System.out.print("몸무게(kg)를 입력해 주세요 :");
+		System.out.print("몸무게(kg)를 입력해 주세요 : ");
 		double weight = sc.nextDouble();
 		
 		double bmi = weight / (height * height);
@@ -76,13 +76,13 @@ public class ConditionPractice {
 	}
 	public void practice5() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("중간 고사 점수 : ");
+		System.out.print("중간 고사 점수 : ");
 		int mi = sc.nextInt();
-		System.out.println("기말 고사 점수 : ");
+		System.out.print("기말 고사 점수 : ");
 		int fi = sc.nextInt();
-		System.out.println("과제 점수 : ");
+		System.out.print("과제 점수 : ");
 		int su = sc.nextInt();
-		System.out.println("출석 횟수 : ");
+		System.out.print("출석 횟수 : ");
 		int ch = sc.nextInt();
 		
 		double total = mi * 0.2 + fi * 0.3 + su * 0.3 + ch;
@@ -90,8 +90,8 @@ public class ConditionPractice {
 			System.out.println("================= 결과 =================");
 			System.out.println("중간 고사 점수(20) : " + mi*0.2);
 			System.out.println("기말 고사 점수(30) : " + fi*0.3);
-			System.out.println("과제 점수(20) : " + su*0.3);
-			System.out.println("출석 점수(20) : " + (double)ch);
+			System.out.println("과제 점수       (20) : " + su*0.3);
+			System.out.println("출석 점수       (20) : " + (double)ch);
 			System.out.println("총점 : " + total);
 			System.out.println("PASS");
 		} else if(total>=70 && ch<=6) {
