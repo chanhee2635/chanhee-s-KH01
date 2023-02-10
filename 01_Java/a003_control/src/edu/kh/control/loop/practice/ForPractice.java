@@ -111,15 +111,15 @@ public class ForPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
+		int x = input;
 		int y = 1;
-		for(int x=input;x>=1;x--) {
-			for(int i=x-1;i>=1;i--) {
+		for(int i=x;i>=1;i--,y++) {
+			for(int j=i-1;j>=1;j--) {
 				System.out.print(" ");
 			}
 			for(int j=y;1<=j;j--) {
 				System.out.print("*");
 			}
-			y++;
 			System.out.println();
 		}
 		
