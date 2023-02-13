@@ -154,9 +154,41 @@ public class ForPractice {
 		for(int i=0;i<input;i++) {
 			for(int j=input*2-1;j>=1;j--) {
 				if(Math.abs(j-input)>i) {
-					System.out.print(" ");
+					System.out.print("~");
 				} else {
 					System.out.print("*");
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	public void practice11else1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		for(int row=1;row<=input;row++) {
+			// 빈칸 먼저 출력
+			for(int col=input-row;col>=1;col--) {
+				System.out.print(" ");
+			}
+			for(int col=1;col<=row*2-1;col++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+	public void practice11else2() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		for(int row=1;row<=input;row++) {
+			for(int col=1; col<=input+row-1;col++) {
+				if(input-row >= col) {
+					System.out.println(" ");
+				}else {
+					System.out.println("*");
 				}
 			}
 			System.out.println();
@@ -168,15 +200,13 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		for(int i=1;i<=input;i++) {
-			System.out.print("*");
-			for(int j=1;j<=input-2;j++) {
-				if(i==1||i==input) {
+			for(int j=1;j<=input;j++) {
+				if(i==1||i==input||j==1||j==input) {
 					System.out.print("*");
 				} else {
 					System.out.print(" ");
 				}
 			}
-			System.out.print("*");
 			System.out.println();
 			
 		}

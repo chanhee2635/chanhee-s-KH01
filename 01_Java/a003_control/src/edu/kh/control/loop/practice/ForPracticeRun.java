@@ -14,11 +14,10 @@ public class ForPracticeRun {
 //		fp.practice8();
 //		fp.practice9();
 //		fp.practice10();
-//		fp.practice10else();
-//		fp.practice11();
-//		fp.practice11else();
+		fp.practice11();
+//		fp.practice11else1();
+//		fp.practice11else2();
 //		fp.practice12();
-		fp.practice12else();
 //		fp.practice13();
 	}
 }
