@@ -132,26 +132,6 @@ public class ForPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
-		for(int x=1;x<=input;x++) {
-			for(int i=1;i<=x;i++) {
-				System.out.print("*");
-			}
-			System.out.println();
-			if(x==input) {
-				for(int i=input-1;i>=1;i--) {
-					for(int j=i;j>=1;j--) {
-						System.out.print("*");
-					}
-					System.out.println();
-				}
-			}
-		}
-	}
-	
-	public void practice10else() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("정수 입력 : ");
-		int input = sc.nextInt();
 		for(int i=1;i<=input*2-1;i++){
 			if(i<=input){
 				for(int j=1;j<=input;j++){
@@ -171,28 +151,6 @@ public class ForPractice {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
-		int x = input-1;
-		int y = 1;
-		for(int i=1;i<=input;i++) {
-			for(int j=x;j>=0;j--) {
-				System.out.print(" ");
-			}
-			for(int j=y;j>=1;j--) {
-				System.out.print("*");
-			}
-			for(int j=x;j>=0;j--) {
-				System.out.print(" ");
-			}
-			System.out.println();
-			y+=2;
-			x--;
-		}
-	}
-	
-	public void practice11else() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("정수 입력 : ");
-		int input = sc.nextInt();
 		for(int i=0;i<input;i++) {
 			for(int j=input*2-1;j>=1;j--) {
 				if(Math.abs(j-input)>i) {
@@ -204,29 +162,8 @@ public class ForPractice {
 			System.out.println();
 		}
 	}
-	
+
 	public void practice12() {
-		Scanner sc = new Scanner(System.in);
-		System.out.print("정수 입력 : ");
-		int input = sc.nextInt();
-		for(int i=1;i<=input;i++) {
-			if(i==1||i==input) {
-				for(int j=1;j<=input;j++) {
-					System.out.print("*");
-				} 
-				System.out.println();
-			} else {
-				System.out.print("*");
-				for(int j=1;j<=input-2;j++) {
-					System.out.print(" ");
-				}
-				System.out.print("*");
-				System.out.println();
-			}
-		}
-	}
-	
-	public void practice12else() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
