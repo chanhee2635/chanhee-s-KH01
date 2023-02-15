@@ -1,5 +1,6 @@
 package edu.kh.array.practice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -173,19 +174,99 @@ public class ArrayPractice {
 	}
 	
 	public void practice11() {
-		
+		int[] arr = new int[10];  // int 자료형 10개칸짜리 arr 배열 생성
+		for(int i=0;i<arr.length;i++) {  // 0~9(arr배열의 크기)까지 i가 1씩 증가하는 반복문
+			arr[i] = (int)(Math.random()*10+1);  // arr배열에 1~10의 랜덤값 넣기
+			for(int j=0;j<i;j++) {  // 0~i-1까지 j가 1씩 증가하는 반복문
+				if(arr[i]==arr[j]) {  // arr[i]==arr[j] 가 같으면
+					i--;  // i를 1 감소시켜 반복문을 다시 실행하도록 함
+				}
+			}
+		}
+		for(int i=0;i<arr.length;i++) {  // 0~9까지 i가 1씩 증가하는 반복문
+			System.out.print(arr[i] + " ");  // arr배열을 하나씩 출력
+		}
 	}
 	
 	public void practice12() {
+		int[] lotto = new int[6];  // 6칸 짜리 lotto 배열 생성
+		for(int i=0;i<lotto.length;i++) { // 난수 넣는 반복문
+			lotto[i] = (int)(Math.random()*45+1);  // lotto 배열에 1~45의 난수 값 하나씩 대입
+			for(int j=0;j<i;j++) {  // j가 0부터 i보다 크지 않을 때까지 j가 1씩 증가하는 반복문
+				if(lotto[i]==lotto[j]) { // lotto 배열에 입력된 난수가 다음 생성된 난수와 같으면
+					i--;  // i를 다시 감소하여 다시 반복
+				}
+			}
+		}
+		for(int i=0;i<lotto.length-1;i++) { // 비교 반복문 (마지막 값은 비교할 대상x -1)
+			int x = 0;  // 값을 담을 변수 생성
+			for(int j=1;j<lotto.length-i;j++) {  // 비교 반복문 (제일 뒤로 쌓이는 값은 더이상 비교x -i)
+				if(lotto[j-1]>lotto[j]) {
+					x = lotto[j-1];
+					lotto[j-1] = lotto[j];
+					lotto[j] = x;
+				}
+			}  // 다시 처음부터 반복 -> 한번 반복할 때마다 큰 값이 뒤로 쌓임
+		}
+		for(int i=0;i<lotto.length;i++) {  // 출력 반복문
+			System.out.print(lotto[i] + " ");
+		}
 		
 	}
 	
 	public void practice13() {
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("문자열 : ");
+		String input = sc.next();
+		char[] arr = new char[input.length()];
+		for(int i=0;i<input.length();i++) {
+			arr[i] = input.charAt(i);
+		}
+		int count = 0;
+		System.out.print("문자열에 있는 문자 : ");
+		for(int i=0;i<arr.length;i++) {
+			boolean flag = true;
+			for(int j=0;j<i;j++)
+				if(arr[i]==arr[j]) {
+					flag = false;
+			}
+			if(flag && i<arr.length-1) {
+				System.out.print(arr[i] + ", ");
+				count += 1;
+			} else if(flag && i==arr.length-1) {
+				System.out.print(arr[i]);
+				count += 1;
+			}
+		}
+		System.out.println("\n문자 개수 : " + count);
 	}
 	
 	public void practice14() {
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int input = sc.nextInt();
+		String[] arr = new String[input];
+		sc.nextLine();
+		while(true) {
+			int df = 0;
+			int plus = 0;
+			for(int i = df;i<arr.length+plus;i++) {
+				System.out.printf("%d번째 문자열 : ",i+1);
+				String A = sc.nextLine();
+				arr[i] = A;
+			}
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			String yn = sc.next();
+			if(yn=="yes") {
+				System.out.print("더 입력하고 싶은 개수 : ");
+				plus = sc.nextInt();
+				df = arr.length;
+				System.arraycopy(arr, 0, arr, 0, arr.length+plus);
+			}else {
+				System.out.println(Arrays.toString(arr));
+				break;
+			}
+		}	
 	}
 	
 	public void practice15() {

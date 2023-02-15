@@ -33,9 +33,6 @@ public class BasicRun {
 		// 객체의 기능 호출하기
 		n1.medicalBenefits();
 		n1.speakKorean();
-		
-		
-		
 	}
 	
 }
