@@ -244,30 +244,34 @@ public class ArrayPractice {
 	public void practice14() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("배열의 크기를 입력하세요 : ");
-		int input = sc.nextInt();
-		String[] arr = new String[input];
+		int a= 0;
+		int len = sc.nextInt() + a;
 		sc.nextLine();
-		while(true) {
-			int df = 0;
-			int plus = 0;
-			for(int i = df;i<arr.length+plus;i++) {
-				System.out.printf("%d번째 문자열 : ",i+1);
+		String[] arr = new String[len];
+		String[] des = new String[len];
+		for(int i=0;i<len+a;i++) {
+			System.out.printf("%d번째 문자열 : ", i+1);
+			arr[i]= sc.nextLine();
+			if(i==len+a-1) {
+				System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
 				String A = sc.nextLine();
-				arr[i] = A;
+				if(A.equals("y")) {
+					des = new String[len+a];
+					System.arraycopy(arr, 0, des, 0, len+a);
+					System.out.print("더 입력하고 싶은 개수 : ");
+					a += sc.nextInt();
+					sc.nextLine();
+					arr = new String[len+a];
+					System.arraycopy(des, 0, arr, 0, i+1);
+				}else {
+					des = new String[len+a];
+					System.arraycopy(arr, 0, des, 0, i+1);
+					System.out.println(Arrays.toString(des));
+				}
 			}
-			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-			String yn = sc.next();
-			if(yn=="yes") {
-				System.out.print("더 입력하고 싶은 개수 : ");
-				plus = sc.nextInt();
-				df = arr.length;
-				System.arraycopy(arr, 0, arr, 0, arr.length+plus);
-			}else {
-				System.out.println(Arrays.toString(arr));
-				break;
-			}
-		}	
-	}
+		}
+		
+	}	
 	
 	public void practice15() {
 		
