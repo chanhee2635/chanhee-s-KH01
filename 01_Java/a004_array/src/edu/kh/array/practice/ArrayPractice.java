@@ -237,26 +237,45 @@ public class ArrayPractice {
 	
 	public void practice14() {
 		System.out.print("배열의 크기를 입력하세요 : ");
+		
+		// next() :
+		// nextLine() :
+		
 		int len = sc.nextInt(); 										// 처음 배열 크기가 입력될 변수(계속 추가될 예정)
 		sc.nextLine();  												// next(). nextInt(), nextDouble() 는 사이띄기, tab키, enter키를 
 																		// 구분문자로 분리해서 분리된 자료만 읽어간다. 사이띄기, tab키, enter키는 남겨짐
 																		// nextLine() 는 한 줄 단위로 입력, 입력하고 Enter키를 누르면 Enter까지 읽어간다.
+		// 스캐너 입력 버퍼와 nextXXX의 의미
+		// 입력 → 입력 버퍼에 저장 → nextXXX() 통해 버퍼 내용을 읽어옴
+		//  nextLine() : hello world(엔터) → 엔터를 가져왔다가 엔터 제거
+		
+	      // [문제점]
+	      // nextInt() 이후 입력 버퍼에 남아있는 (엔터) 때문에
+	      // 다음 nextLine() 수행 시 버퍼에 남아있는 (엔터)를 읽어버리기 때문에
+	      // 추가적인 입력을 시도하지 못하고 다음 코드로 넘어가는 문제 발생.
+	      
+	      // [해결방법]
+	      // 입력을 위한 nextLine() 수행 전 
+	      // 입력 버퍼에서 (엔터)를 제거
+	      // -> 빈 공간에 sc.nextLine() 구문을 한번 작성하면 (엔터)가 제거됨
+		
+		
 		String[] arr = new String[len];									// 값 입력받을 배열 
-		String[] des = new String[len];  								// arr을 깊은복사로 대입할 배열 des
+		String[] des;  													// arr을 깊은복사로 대입할 배열 des
 		for(int i=0;i<len;i++) {
 			System.out.printf("%d번째 문자열 : ", i+1);  
 			arr[i]= sc.nextLine();										// 문자열을 arr 배열에 반복문으로 입력
 			if(i==len-1) {  											// 반복문 끝에서
 				System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-				String A = sc.nextLine();  								// y, n 을 확인할 변수
-				if(A.equals("y")) {
+				char A = sc.nextLine().charAt(0);  								// y, n 을 확인할 변수
+				if(A == 'y') {
 					des = new String[len];  							// des 배열 선언
 					System.arraycopy(arr, 0, des, 0, len);  			// arr 배열을 des 배열로 깊은 복사
 					System.out.print("더 입력하고 싶은 개수 : ");
 					len += sc.nextInt();  								// 더 입력할 길이를 기본 길이에 추가
 					sc.nextLine();  									// 다시 돌아갔을 때 nextLine을 위해 엔터값을 받아줌
-					arr = new String[len];  // 추가한 길이만큼 arr 배열을 다시 선언
-					System.arraycopy(des, 0, arr, 0, i+1);  // des에 담았던 값을 arr에 넣기
+					arr = new String[len]; 								// 추가한 길이만큼 arr 배열을 다시 선언
+					System.arraycopy(des, 0, arr, 0, i+1);  			// des에 담았던 값을 arr에 넣기
 				}else {
 					System.out.println(Arrays.toString(arr));
 				}
