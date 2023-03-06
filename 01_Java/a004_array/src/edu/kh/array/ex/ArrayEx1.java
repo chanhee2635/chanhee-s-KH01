@@ -336,9 +336,6 @@ public class ArrayEx1 {
 		System.out.println("arr2 : " + Arrays.toString(arr2));
 		System.out.println("copyArr2 : " + Arrays.toString(copyArr2));
 	}
-	
-	
-	
 }
 	
 	
