@@ -13,6 +13,14 @@ public class Employee {
 	private int salary;    // 급여
 	private String deptCode; // 부서코드
 	private String jobCode; // 직급코드
+	public String getJobCode() {
+		return jobCode;
+	}
+
+	public void setJobCode(String jobCode) {
+		this.jobCode = jobCode;
+	}
+
 	private String salLevel; // 급여등급
 	private double bonus; // 보너스
 	private int managerId; // 사수번호
@@ -34,6 +42,21 @@ public class Employee {
 		this.salary = salary;
 	}
 	
+
+	public Employee(String empName, String empNo, String email, String phone, int salary, String deptCode,
+			String jobCode, String salLevel, double bonus, int managerId) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+		this.email = email;
+		this.phone = phone;
+		this.salary = salary;
+		this.deptCode = deptCode;
+		this.jobCode = jobCode;
+		this.salLevel = salLevel;
+		this.bonus = bonus;
+		this.managerId = managerId;
+	}
 
 	public int getEmpId() {
 		return empId;
