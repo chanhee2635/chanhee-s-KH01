@@ -27,7 +27,7 @@ public class SelectJobNameDAO {
 			String type   = "jdbc:oracle:thin:@";
 			String ip     = "localhost";
 			String port   = ":1521";
-			String dbName = ":ORCL";
+			String dbName = ":XE";
 			String user   = "kh_kch";
 			String pw     = "oracle_kch123A"; 
 			

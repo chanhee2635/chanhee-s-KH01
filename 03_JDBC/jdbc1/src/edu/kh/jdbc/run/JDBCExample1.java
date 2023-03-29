@@ -76,7 +76,7 @@ public class JDBCExample1 {
 			
 			String port = ":1521"; // 컴퓨터 내 응용프로그램 번호
 			
-			String dbName = ":ORCL"; // DB 이름 (비슷한 단어로 SID)
+			String dbName = ":XE"; // DB 이름 (비슷한 단어로 SID)
 			// 19c 버전 : :ORCL
 			
 			String user = "kh_kch";
