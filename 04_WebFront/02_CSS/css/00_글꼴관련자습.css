@@ -1,0 +1,156 @@
+/* font-family:<글꼴 이름> | [<글꼴 이름>, <글꼴 이름>] */
+/* body{
+    font-family: "맑은 고딕", 돋움, 굴림;
+} */
+
+/* font-size: <절대 크기> | <상대 크기> | <크기> | <백분율> */
+p{
+    font-size:xx-small;
+    font-size:x-small;
+    font-size:small;
+    font-size:medium;
+    font-size:large;
+    font-size:x-large;
+    font-size:xx-large;
+
+    font-size:5em; /* 부모요소 대문자(1em) 대비 비율 값 */
+    font-size:5rem; /* 문서 시작 부분(1rem) 대비 비율 값 */
+    font-size:5ex; /* 해당 글꼴 소문자 x의 높이(1ex) 대비 비율 값 */
+    font-size:5px; /* 모니터 1픽셀(1px) 대비 비율 값 */
+    font-size:20pt; /* 일반 문서 사이즈(포인트) */
+}
+
+/* font-style : nomal | italic | oblique */
+p{
+    font-style: normal; /* 기본값 */
+    font-style: italic; /* 이탤릭체 */
+    font-style: oblique; /* 이탤릭체 */
+}
+
+/* font-weight: normal | bold | bolder | lighter | 100 | 200 | ... | 800 | 900 */
+p{
+    font-weight: normal; /* 기본값 */
+    font-weight: bold; /* 굵게 */
+    font-weight: bolder; /* 원래보다 더 굵게 */
+    font-weight: lighter; /* 원래보다 더 가늘게 */
+    font-weight: 500; /* 100(가늘게)~900(굵게) */
+}
+/* 실습 */
+/* body{
+    font-size: 20px;
+} */
+h1{
+    font-family: 바탕;
+    font-size: 3em;
+}
+.accent{
+    font-size: 150%;
+    font-weight: 800;
+}
+.italic{
+    font-style: italic; 
+}
+
+
+/* @font-face{ 
+    font-family: <글꼴 이름>;
+    src: <글꼴 파일>[<글꼴 파일>, <글꼴 파일>, ...];
+    } */
+@font-face{
+    font-family: 'Ostrich';
+    src: local('Ostrich Sans'),
+        url('../Do\ it!\ HTML+CSS+자바스크립트\ 웹\ 표준의\ 정석_본문_예제소스_220311/07/fonts/ostrich-sans-bold.woff') format('woff'),
+        url('../Do\ it!\ HTML+CSS+자바스크립트\ 웹\ 표준의\ 정석_본문_예제소스_220311/07/fonts/ostrich-sans-bold.ttf') format('truetype'),
+        url('../Do\ it!\ HTML+CSS+자바스크립트\ 웹\ 표준의\ 정석_본문_예제소스_220311/07/fonts/ostrich-sans-bold.svg') format('svg');
+}
+.wfont{
+    font-family: 'Ostrich', sans-serif;
+}
+p{
+    font-size: 30px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle:wght@300;400;700&family=Gowun+Dodum&display=swap');
+/* font-family: 'Black Han Sans', sans-serif;
+font-family: 'Dongle', sans-serif;
+font-family: 'Gowun Dodum', sans-serif; */
+.google{font-family: 'Black Han Sans', sans-serif;}
+
+/* color: <색상> */
+h1{
+    color: #0000ff;
+}
+p{
+    color: green;
+}
+.accent{
+    color:hsl(0, 100%, 50%);
+    font-weight: bold;
+}
+h1{ color: rgb(0, 0, 255, 0.5);}
+
+/* text-align: start | end | left | right | center | justify | match-parent */
+
+.center{
+    text-align: center;
+}
+.justify{
+    text-align: justify;
+}
+p{
+    font-size: 50px;
+    /* line-height: 24px; */
+    line-height: 0.7;
+    /* line-height: 200%; */
+}
+.heading{
+    width: 100%;
+    height: 100px;
+    background: #222;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+
+/* text-shadow: none | <가로 거리> <세로 거리> <번짐 정도> <색상> */
+.shadow1{
+    color:red;
+    text-shadow: 1px 1px black;
+}
+.shadow2{
+    text-shadow: 5px 5px 3px yellow;
+}
+
+/* text-transform : capitalize | uppercase | lowercase | full-width */
+.trans1{text-transform:capitalize} /* 첫 번째 글자를 대문자로 */
+.trans1{text-transform:uppercase} /* 전체 글자를 대문자로 */
+.trans1{text-transform:lowercase} /* 전체 글자를 소문자로 */
+
+/* letter-spacing, word-spacing */
+.spacing1{
+    letter-spacing: 0.2em;
+}
+/* 
+list-style-type : 목록 스타일
+disc : ●
+circle : ○
+square : ■
+decimal : 1, 2, 3, ···
+decimal-leading-zero : 01, 02, ···
+lower-roman : ⅰ, ⅱ, ⅲ, ···
+upper-roman : Ⅰ, Ⅱ, Ⅲ, ···
+lower-alpha 또는 lower-latin : a, b, c, ···
+upper-alpha 또는 upper-latin : A, B, C, ···
+none : 없앰
+*/
+
+/* list-style-image: <url(이미지 파일 경로)> | none */
+/* ul{list-style-image: }; */
+
+/* list-style-position: inside | outside; */
+
+/* caption-side: top | bottom */
+
+/* border-spacing: 수평거리 수직거리 */
+
+/* border-collapse: collapse | separate */

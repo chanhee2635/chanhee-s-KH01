@@ -1,0 +1,44 @@
+#colorList>li{
+    font-size:24px;
+    font-weight:bold;
+}
+#colorList>li:first-child{color:red;}
+#colorList>li:nth-child(2){color: rgb(50, 130, 200);}
+#colorList>li:nth-child(3){color: rgba(255,0,0,0.5);}
+#colorList>li:nth-child(4){color: #abc;}
+#colorList>li:nth-child(5){color: #8918f5;}
+#colorList>li:nth-child(6){color: hsl(360, 100%, 50%);}
+#colorList>li:last-child{color: hsla(360, 100%, 50%, 0.3);}
+
+#decolationList>li:nth-child(1){text-decoration: overline;}
+#decolationList>li:nth-child(2){text-decoration: line-through;}
+#decolationList>li:nth-child(3){text-decoration: underline;}
+#decolationList>li:nth-child(4)>a{text-decoration: none;}
+
+/* text-align */
+#alignTest>p:nth-child(1){text-align:left;}
+#alignTest>p:nth-child(2){text-align:right;}
+#alignTest>p:nth-child(3){text-align:center;}
+#alignTest>p:nth-child(4){text-align:justify;}
+
+/* line-height */
+#lineHeight{ line-height: 30px; }
+
+/* letter-Spacing */
+#letterSpacing{ letter-spacing: 20px;}
+
+/* font-family */
+#fontFamily>li:nth-child(1){font-family: '궁서';}
+#fontFamily>li:nth-child(2){font-family: '궁서체';}
+#fontFamily>li:nth-child(3){font-family: '동현체', '궁서체';}
+#fontFamily>li:nth-child(4){font-family: 'Nanum Pen Script', cursive;}
+
+/* 다운 받은 폰트 적용 */
+@font-face{
+    font-family: 'Dongle';
+    src : url('Dongle-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#fontFamily>li:nth-child(6){font-family: 'Dongle';}
