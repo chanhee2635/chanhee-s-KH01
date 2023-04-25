@@ -74,7 +74,7 @@ openPopup1.addEventListener("click", () => {
 });
 
 openPopup2.addEventListener("click", () => {
-    // 새창에서 최소한의 팝업창 요건을 가진 상태로 열길
+    // 새창에서 최소한의 팝업창 요건을 가진 상태로 열기
     // window.open("url", "_blank", "popup")
 
     window.open("07_함수.html", "_blank", "popup");

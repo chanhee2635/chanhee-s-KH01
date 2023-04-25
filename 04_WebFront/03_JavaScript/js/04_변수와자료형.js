@@ -55,7 +55,7 @@ let let1 = 10;
 
 // const는 let이랑 똑같은데 상수인 점만 다름!
 const temp = 999;
-temp = 1000; // typeError : Assignment to constant variable.
+// temp = 1000; // typeError : Assignment to constant variable.
 
 function testFn2(){
     let let1 = 20;
@@ -65,7 +65,8 @@ function testFn2(){
         let let1 = 30;
         let let3 = 300;  // let3 is not defined
     }
-    // console.log("if문 내부 let3 : " + let3);
+    console.log("if문 내부 let1 : " + let1);
+    console.log("if문 내부 let3 : " + let3);
 }
 testFn2(); // 함수 호출
 // console.log("함수 내부에 선언한 let2 : " + let2); // 에러
