@@ -140,7 +140,7 @@
     </pre>
 
     <c:set var="temp" scope="session" value="<h1>점심시간</h1>"/>
-    html 태그 해석 X : <c:out value="${temp}" escapeXml="false"/>
+    html 태그 해석 X : <c:out value="${temp}" escapeXml="true"/>
     <br>
     html 태그 해석 O : ${temp}
 </body>
