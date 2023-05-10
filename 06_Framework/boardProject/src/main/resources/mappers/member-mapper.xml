@@ -21,6 +21,7 @@
        <result> 태그 : <id>제외 나머지
     -->
     
+        <!-- mybatis-config.xml 별칭 -->
    <resultMap type="Member" id="member_rm">
       <!-- DB의 기본 키(복합키면 여러 개 작성) -->
       <id property="memberNo" column="MEMBER_NO" />

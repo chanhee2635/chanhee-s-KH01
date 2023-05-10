@@ -9,8 +9,6 @@
 <script src="https://kit.fontawesome.com/f7459b8054.js" crossorigin="anonymous"></script>
 
 
-
-
 <header>
     <section>
         <!-- 클릭 시 메인 페이지로 이동하는 로고 -->
@@ -71,23 +69,25 @@
                 </div>
             </c:otherwise>
         </c:choose>
-
-        
     </div>
-
-    
-
-
-
-
 </header>
 
 <nav>
     <ul>
-        <li><a href="#">공지사항</a></li>
+        <%-- <li><a href="#">공지사항</a></li>
         <li><a href="#">자유 게시판</a></li>
         <li><a href="#">질문 게시판</a></li>
         <li><a href="#">FAQ</a></li>
-        <li><a href="#">1:1문의</a></li>
+        <li><a href="#">1:1문의</a></li> --%>
+
+        <%-- 
+            interceptor를 이용해서 조회된 boardTypeList를
+            application scope에서 얻어와 화면에 출력
+        --%>
+        <c:forEach var="boardType" items="${boardTypeList}">
+            <li>
+                <a href="/board/${boardType.BOARD_CODE}">${boardType.BOARD_NAME}</a>
+            </li>
+        </c:forEach>
     </ul>
 </nav>
