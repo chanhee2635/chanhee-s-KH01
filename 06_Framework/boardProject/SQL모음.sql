@@ -547,4 +547,12 @@ SELECT * FROM "BOARD_LIKE"
 WHERE BOARD_NO = 1497  -- 게시글 번호
 AND MEMBER_NO = 1;     -- 로그인 회원 번호
 
+-- 좋아요 테이블 삽입
+INSERT INTO "BOARD_LIKE" VALUES(
+		#{boardNo}, #{memberNo});
+	
+-- 좋아요 테이블 삭제
+DELETE FROM "BOARD_LIKE"
+WHERE BOARD_NO = #{boardNo}
+AND MEMBER_NO = #{memberNo}
 

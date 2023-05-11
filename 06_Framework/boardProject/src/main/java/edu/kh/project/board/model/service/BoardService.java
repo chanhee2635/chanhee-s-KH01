@@ -29,4 +29,10 @@ public interface BoardService {
 	 */
 	int like(Map<String, Integer> paramMap);
 
+	/** 조회 수 증가 서비스
+	 * @param boardNo
+	 * @return result
+	 */
+	int updateReadCount(int boardNo);
+
 }

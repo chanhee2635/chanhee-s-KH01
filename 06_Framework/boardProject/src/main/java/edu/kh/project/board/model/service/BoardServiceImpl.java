@@ -86,4 +86,12 @@ public class BoardServiceImpl implements BoardService{
 		
 		return count;
 	}
+
+	// 조회 수 증가 서비스
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public int updateReadCount(int boardNo) {
+		
+		return dao.updateReadCount(boardNo);
+	}
 }

@@ -94,5 +94,13 @@ public class BoardDAO {
 	public int countBoardLike(Integer boardNo) {
 		return sqlSession.selectOne("boardMapper.countBoardLike", boardNo);
 	}
+
+	/** 조회 수 증가
+	 * @param boardNo
+	 * @return result
+	 */
+	public int updateReadCount(int boardNo) {
+		return sqlSession.update("boardMapper.updateReadCount", boardNo);
+	}
 	
 }

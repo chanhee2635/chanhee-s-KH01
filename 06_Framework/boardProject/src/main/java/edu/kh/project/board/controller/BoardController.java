@@ -1,5 +1,9 @@
 package edu.kh.project.board.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -115,7 +119,7 @@ public class BoardController {
 			// 쿠키를 이용한 조회 수 증가에서 사용
 			, HttpServletRequest req  
 			, HttpServletResponse resp
-			) {
+			) throws ParseException {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
@@ -200,7 +204,44 @@ public class BoardController {
 						// 조회수 증가 서비스 호출
 						result = service.updateReadCount(boardNo);
 					}
+				} // 3) 종료
+				
+				// 4) 조회 수 증가 성공 시
+				// 쿠키가 적용되는 경로, 수명(당일 23시 59분 59초) 지정
+				
+				if(result>0) {
+					board.setReadCount(board.getReadCount()+1);
+					// 조회된 board 조회 수와 DB 조회 수 동기화
+					
+					// 적용 경로 설정
+					c.setPath("/"); // "/" 이하 경로 요청 시 쿠키 서버로 전달
+					
+					// 수명 지정
+					Calendar cal = Calendar.getInstance();  // 싱글톤 패턴
+					cal.add(cal.DATE, 1);
+					
+					// 날짜 표기법 변경 객체 (DB의 TO_CHAR()와 비슷)
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+					
+					// java.util.Date
+					Date a = new Date(); // 현재 시간
+					
+					Date temp = new Date(cal.getTimeInMillis());  // 내일 (24시간 후)
+					// 2023-05-11 12:16:10
+					
+					Date b = sdf.parse(sdf.format(temp)); // 내일 (0시 0분 0초)  예외처리 던지면 Spring이 처리해줌
+					
+					// 내일 0시 0분 0초 - 현재 시간
+					long diff = (b.getTime() - a.getTime()) / 1000;  
+					// -> 내일 0시 0분 0초까지 남은 시간을 초단위로 반환
+					
+					c.setMaxAge((int)diff); // 수명 설정
+					
+					resp.addCookie(c);  // 응답 객체를 이용해서
+										// 클라이언트에게 전달
+						
 				}
+				
 				
 			}
 			

@@ -5,6 +5,7 @@ const memberPw = document.querySelector("input[name='memberPw']");
 
 
 // 로그인 시도를 할 때
+if(loginFrm != null){
 loginFrm.addEventListener("submit", e => {
 
     // alert("로그인");
@@ -37,6 +38,7 @@ loginFrm.addEventListener("submit", e => {
     }
 
 });
+}
 
 // 비동기로 이메일이 일치하는 회원의 닉네임 조회
 function selectNickname(email){
