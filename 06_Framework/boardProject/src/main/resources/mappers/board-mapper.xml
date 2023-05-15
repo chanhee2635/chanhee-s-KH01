@@ -136,13 +136,25 @@
 	
 	<!-- 특정 게시글 댓글 조회(바뀔 예정) -->
 	<select id="selectCommentList" resultMap="comment_rm">
-		SELECT COMMENT_NO, COMMENT_CONTENT,
+		<!-- SELECT COMMENT_NO, COMMENT_CONTENT,
 			TO_CHAR(C_CREATE_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') C_CREATE_DATE,
 		    BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE_IMG, PARENT_NO, COMMENT_DEL_FL
 		FROM "COMMENT"
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_NO = #{boardNo}
-		ORDER BY COMMENT_NO
+		ORDER BY COMMENT_NO -->
+		
+		SELECT LEVEL, C.* FROM 
+			(SELECT COMMENT_NO, COMMENT_CONTENT,
+				TO_CHAR(C_CREATE_DATE, 'YYYY"년" MM"월" DD"일" HH24"시" MI"분" SS"초"') C_CREATE_DATE,
+			    BOARD_NO, MEMBER_NO, MEMBER_NICKNAME, PROFILE_IMG, PARENT_NO, COMMENT_DEL_FL
+			FROM "COMMENT"
+			JOIN MEMBER USING(MEMBER_NO)
+			WHERE BOARD_NO = #{boardNo}) C
+		WHERE COMMENT_DEL_FL = 'N'
+		START WITH PARENT_NO IS NULL
+		CONNECT BY PRIOR COMMENT_NO = PARENT_NO
+		ORDER SIBLINGS BY COMMENT_NO
 	</select>
 	
 	<!-- 좋아요 여부 확인 -->
@@ -238,4 +250,39 @@
 			</foreach>			
 		) A
 	</insert>
+	
+	<update id="boardUpdate">
+		UPDATE "BOARD" SET 
+		BOARD_TITLE = #{boardTitle},
+		BOARD_CONTENT = #{boardContent},
+		B_UPDATE_DATE = SYSDATE
+		WHERE BOARD_CODE = #{boardCode} AND BOARD_NO = #{boardNo}
+	</update>
+	
+	<delete id="imageDelete">
+		DELETE FROM "BOARD_IMG"
+		WHERE BOARD_NO = #{boardNo}
+		AND IMG_ORDER IN (${deleteList})
+	</delete>
+	
+	<update id="imageUpdate">
+		UPDATE "BOARD_IMG" SET
+		IMG_PATH = #{imagePath},
+		IMG_ORIGINAL = #{imageOriginal},
+		IMG_RENAME = #{imageReName}
+		WHERE BOARD_NO = #{boardNo} AND IMG_ORDER = #{imageOrder}
+	</update>
+	
+	<insert id="imageInsert">
+		INSERT INTO "BOARD_IMG"
+		VALUES(
+			SEQ_IMG_NO.NEXTVAL, #{imagePath}, #{imageReName}, #{imageOriginal}, #{imageOrder}, #{boardNo})
+	</insert>
+	
+	<update id="boardDelete">
+		UPDATE "BOARD" SET
+		BOARD_DEL_FL = 'Y'
+		WHERE BOARD_CODE = #{boardCode} AND BOARD_NO = #{boardNo}
+	</update>
+	
 </mapper>
