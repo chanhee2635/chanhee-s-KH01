@@ -76,9 +76,10 @@ public class BoardController2 {
 		String webPath = "/resources/images/board/";
 		
 		String filePath = session.getServletContext().getRealPath(webPath);
-		
+		System.out.println(filePath);
 		// 게시글 삽입 서비스 호출 후 삽입된 게시글 번호 반환 받기
 		int boardNo = service.boardInsert(board, images, webPath, filePath);
+		
 		
 		// 게시글 삽입 성공 시
 		// -> 방금 삽입한 게시글의 상세 조회 페이지 리다이렉트
