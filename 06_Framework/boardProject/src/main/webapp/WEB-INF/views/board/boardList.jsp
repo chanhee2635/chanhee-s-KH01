@@ -96,15 +96,10 @@
                     <!-- 로그인 상태일 경우 글쓰기 버튼 노출 -->
                     <button id="insertBtn">글쓰기</button>                     
                 </c:if>
-
             </div>
 
-
             <div class="pagination-area">
-
-
                 <ul class="pagination">
-                
                     <!-- 첫 페이지로 이동 -->
                     <li><a href="/board/${boardCode}?cp=1${sp}">&lt;&lt;</a></li>
                     <%-- <li><a href="${boardCode}?cp=1">&lt;&lt;</a></li> 상대경로 --%>

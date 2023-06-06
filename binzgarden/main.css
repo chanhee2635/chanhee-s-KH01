@@ -72,17 +72,18 @@ ul, li
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 10;
 }
 .slide_pagination > li
 {
-    color: #444;
+    color: #bcbcbc;
     cursor: pointer;
     font-size: 25px;
 }
 
 .slide_pagination > li.active
 {
-    color: #000;
+    color: #434343;
 }
 .slide_item_duplicate
 {
@@ -107,69 +108,162 @@ ul, li
 
 
 
-
-.main_contents{
-    width: 980px;
-    margin: 0 auto;
-}
-
 /* 서브 슬라이드 */
-.sub_wrap{ /* 서브 슬라이드 박스 */
+.sub_slide {
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.sub_wrap
-{
-    display: flex;  /* 가로로 배치 */
+    height: 380px;
     position: relative;
-    white-space: nowrap;
-    height: 326px;
-    max-width: 980px; /* 생성할 때 너비곱 */
-    width: 100%;
+}
+.sub_slide .inner {
+    padding: 40px 0;
     overflow: hidden;
-}
-.sub_wrap>.item
-{
-    margin-right: 15px;
-}
-.poster_info
-{
+    height: 100%;
     position: relative;
-    display: flex;
 }
-.poster_info em{
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white;
-    font-size: 26px;
-    font-weight: bold;
-}
-.poster_info span{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-.btm_info{
-    margin-top: 20px;
-}
-.btm_info strong{
-    display: block;
-    text-align: center;
-    color: white;
-    font-size: 13px;
+.sub_slide .swiper-container {
+    width: 980px;
+    height: 40px;
 }
 
-.item .top_info img
-{
-    object-fit: cover;
-    height: 262px;
-    border-radius: 5px;
+.swiper-slide img{
+    width: 180px;
 }
-.item .btm_info img
-{
-    width: 12px;
-    height: 12px;
+.swiper-wrapper {
+    display: flex;
+    box-sizing: content-box
+}
+
+.sub_slide_btn{  /* 버튼 감싸는 요소 */
+    position: static;
+    display: block;
+}
+.sub_slide .swiper-prev,
+.sub_slide .swiper-next {  /* 버튼 */
+    position: absolute;
+    cursor: pointer;
+    top: 28%;
+}
+.material-icons>*{  /* 버튼 색 */
+    fill: rgb(94, 94, 94);
+}
+.sub_slide .swiper-prev {  /* 이전 버튼 위치 */
+    left: 250px;
+}
+.sub_slide .swiper-next {  /* 다음 버튼 위치 */
+    right: 240px;
+}
+.sub_slide .swiper-prev>.material-icons>*:hover,
+.sub_slide .swiper-next>.material-icons>*:hover {  /* 마우스 올렸을 때 흰색 */
+    fill: white;
+}
+
+.swiper-slide>*{  /* 글씨 하얀색 */
+    color:white;
+}
+.top_info{
+    position: relative;
+}
+.poster_info em{ /* 순위 */
+    position: absolute;
+    bottom: 4px;
+    font-size: 26px;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(1, 1, 1, 0.43));
+}
+.poster_info span{ /* 등급 */
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+.btm_info{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.tit_info{
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.rate_info{
+    font-size:12px;
+}
+
+.star_info{
+    margin-left: 10px;
+    font-size: 12px;
+}
+.star_info img{  /* 별 크기 작게 */
+    width: 10px;
+    height: 10px;
+}
+
+
+/* 공지사항 */
+.announcement{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.announcement>article{
+    width: 780px;
+    padding: 50px 10px;
+    position: relative;
+}
+.announcement>article>span{
+    font-size: 20px;
+    font-weight: bold;
+}
+.announcement>article>div:first-of-type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #666666;
+    height: 30px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.announcement>article>div>span:first-child{
+    width: 80%;
+}
+.announcement>article>div>span:last-child{
+    width: 20%;
+}
+
+.announContent>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 30px;
+    border-bottom: 1px solid #AAA;
+    font-size: 14px;
+}
+
+.announContent>div>span:first-child{
+    width: 80%;
+}
+.announContent>div>span:last-child{
+    width: 20%;
+}
+
+.announcement>article>a{
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    font-size: 10px;
+    color : #666666;
+    text-decoration: none;
 }

@@ -116,7 +116,7 @@ for (let i = 0; i < maxSlide; i++) {
     const offset = slideWidth * currSlide;
     // 각 슬라이드 아이템의 left에 offset 적용
     slideItems.forEach((i) => {
-        i.setAttribute("style", `transform: translate(${-offset}vw)`);
+        i.setAttribute("style", `left: ${-offset}px`);
     });
     // 슬라이드 이동 시 현재 활성화된 pagination 변경
     paginationItems.forEach((i) => i.classList.remove("active"));
@@ -143,3 +143,42 @@ slide.addEventListener("mouseup", (e) => {
     nextMove();
     }
 });
+
+
+
+
+new Swiper('.sub_slide .swiper-container', {
+    direction: 'horizontal', // 기본값
+    spaceBetween: 30,
+    slidesPerView: 5,
+    navigation: {
+      prevEl: '.sub_slide .swiper-prev',
+      nextEl: '.sub_slide .swiper-next'
+    }
+});
+const swiperSlide = document.querySelectorAll(".swiper-slide");
+const swiperPrev = document.querySelector(".swiper-prev");
+const swiperNext = document.querySelector(".swiper-next");
+const svgBtn = document.querySelectorAll(".material-icons>svg");
+swiperPrev.style.display = 'none';
+let currSubSlide = 1;
+swiperNext.addEventListener("click", ()=>{
+    if(currSubSlide>=swiperSlide.length-5){
+        swiperNext.style.display="none";
+        return;
+    }
+    currSubSlide++;
+    if(currSubSlide > 1){
+        swiperPrev.style.display = 'block';
+    }
+})
+swiperPrev.addEventListener("click", ()=>{
+    if(currSubSlide<=1){
+        swiperPrev.style.display="none";
+        return;
+    }
+    currSubSlide--;
+    if(currSubSlide < swiperSlide.length-5){
+        swiperNext.style.display = 'block';
+    }
+})
