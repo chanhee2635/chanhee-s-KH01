@@ -29,3 +29,5 @@ MANIFEST.MF
 *.log
 .factorypath
 settings.json
+
+config.properties
