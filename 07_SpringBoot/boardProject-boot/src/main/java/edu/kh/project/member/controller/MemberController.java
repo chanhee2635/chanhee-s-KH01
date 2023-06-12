@@ -108,4 +108,66 @@ public class MemberController {
 	      status.setComplete(); 
 	      return "redirect:/";
 	   }
+	   
+		
+		
+	
+	// 로그인 전용 화면 이동
+	@GetMapping("/login")
+	public String login() {
+		return "member/login";
+	}
+	
+	// 회원 가입 페이지 이동
+	@GetMapping("/signUp")
+	public String signUp() {
+		return "member/signUp";
+	}
+	
+	@PostMapping("/signUp")
+	public String signUp(Member inputMember
+						, /* @RequestParam("memberEmail") */ String[] memberAddress
+						, RedirectAttributes ra) {
+		if(inputMember.getMemberAddress().equals(",,")) {
+			inputMember.setMemberAddress(null);
+		} else {
+			String addr = String.join("^^^", memberAddress);
+			inputMember.setMemberAddress(addr);
+		}
+		// 가입 성공 여부에 따라 주소 결정
+		String path = "redirect:";
+		String message = null;
+		
+		int result = service.signUp(inputMember);
+		
+		if(result > 0) {  // 가입 성공
+			path += "/";  // 메인 페이지
+			
+			message = inputMember.getMemberNickname() + "님의 가입을 환영합니다.";
+			
+		} else {  // 가입 실패
+			path += "signUp";  // 상대 경로
+			message = "회원 가입 실패!";
+		}
+		ra.addFlashAttribute("message", message);
+		
+		return path;			
+	}
+	
+	public String exceptionHandler(Exception e, Model model) {
+		
+		// Exception e : 예외 정보를 담고있는 객체
+		// Model model : 데이터 전달용 객체 (request scope가 기본)
+		
+		e.printStackTrace(); // 예외 내용/발생 메서드 확인
+		
+		model.addAttribute("e", e);
+		
+		// forward 진행 
+		// -> View Resolver의 preffix, suffix를 붙여 SJP 경로로 만듦
+		return "common/error";
+	}
+	
+	
+		
 }

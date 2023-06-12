@@ -26,10 +26,10 @@ slideItems[0].before(endElem);  // 첫번째 슬라이드 전에 생성한 마�
 slideItems[slideItems.length - 1].after(startElem);  // 마지막 슬라이드 뒤에 생성한 첫번째 슬라이드 요소 추가
 // slideItems = document.querySelectorAll(".slide_item");
 let offset = slideWidth * currSlide;  // 이동할 너비(슬라이드 넓이 * 슬라이드 위치)
-// slideItems.forEach((i) => {  // 슬라이드마다 style 위치 적용
-//     // i.setAttribute("style", `transform: translate(${-offset}vw)`);
-//     i.setAttribute("style", `left: ${-offset}px`);
-// })
+slideItems.forEach((i) => {  // 슬라이드마다 style 위치 적용
+    // i.setAttribute("style", `transform: translate(${-offset}vw)`);
+    i.setAttribute("style", `left: ${-offset}px`);
+})
 function nextMove() {
     currSlide++;  // 슬라이드 번호 추가
     if(currSlide < maxSlide+1){  // 마지막 슬라이드를 넘어가지 않으면

@@ -87,12 +87,12 @@
 /* 유효성 검사 진행 여부 확인용 객체 */
 // -> 모든 value가 true인 경우에만 회원 가입 진행
 const checkObj = {
-    "memberEmail" : false,
+    "memberEmail" : true,
     "memberPw" : false,
     "memberPwConfirm" : false,
-    "memberNickname" : false,
+    "memberNickname" : true,
     "memberTel" : false,
-    "authKey" : false
+    "authKey" : true
 };
 
 // 이메일 유효성 검사
