@@ -28,9 +28,5 @@ public class LoginFilter implements Filter{
 			chain.doFilter(request, response);
 			// 다음 필터 또는 컨트롤러로 이동
 		}
-		
 	}
-	
-	
-
 }
